@@ -14,7 +14,7 @@ import CryptoJS from "crypto-js";
 import forge from "node-forge";
 
 
-class Ana {
+class Person {
   constructor() {
     var pki = forge.pki;
     var rsa = forge.pki.rsa;
@@ -22,8 +22,6 @@ class Ana {
     var keypair = rsa.generateKeyPair({bits: 2048, e: 0x10001});
     var pubKeyPEM = pki.publicKeyToPem(keypair.publicKey);
     var privKeyPEM = pki.privateKeyToPem(keypair.privateKey);
-    console.log(pubKeyPEM);
-    console.log(privKeyPEM);
 
     this.publicKey = pubKeyPEM;
     this.privateKey = privKeyPEM;
@@ -37,31 +35,6 @@ class Ana {
     return this.privateKey;
   }
 }
-
-class Bob {
-  constructor() {
-    var pki = forge.pki;
-    var rsa = forge.pki.rsa;
-    
-    var keypair = rsa.generateKeyPair({bits: 2048, e: 0x10001});
-    var pubKeyPEM = pki.publicKeyToPem(keypair.publicKey);
-    var privKeyPEM = pki.privateKeyToPem(keypair.privateKey);
-    console.log(pubKeyPEM);
-    console.log(privKeyPEM);
-
-    this.publicKey = pubKeyPEM;
-    this.privateKey = privKeyPEM;
-  }
-
-  getPublicKey() {
-    return this.publicKey;
-  }
-
-  getPrivateKey() {
-    return this.privateKey;
-  }
-}
-
 
 
 // =======================================================
@@ -130,8 +103,8 @@ export async function decryptMessage(encryptedMessage, encryptedAESKey, myPrivat
 
 // =======================================================
 
-const ana = new Ana();
-const bob = new Bob();
+const ana = new Person();
+const bob = new Person();
 
 console.log('Ana public key:\n', ana.getPublicKey());
 console.log('Ana private key:\n', ana.getPrivateKey());

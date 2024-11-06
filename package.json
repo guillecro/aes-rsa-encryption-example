@@ -1,0 +1,19 @@
+{
+  "name": "aes-rsa-encryption-example",
+  "version": "1.0.0",
+  "author": "Guillermo Croppi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guillecro/aes-rsa-encryption-example.git"
+  },
+  "description": "AES and RSA encryption example",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0",
+    "node-forge": "^1.3.1"
+  },
+  "type": "module"
+}

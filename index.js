@@ -14,7 +14,7 @@ import CryptoJS from "crypto-js";
 import forge from "node-forge";
 
 
-class Person {
+class User {
   constructor() {
     var pki = forge.pki;
     var rsa = forge.pki.rsa;
@@ -103,8 +103,8 @@ export async function decryptMessage(encryptedMessage, encryptedAESKey, myPrivat
 
 // =======================================================
 
-const ana = new Person();
-const bob = new Person();
+const ana = new User();
+const bob = new User();
 
 console.log('Ana public key:\n', ana.getPublicKey());
 console.log('Ana private key:\n', ana.getPrivateKey());
